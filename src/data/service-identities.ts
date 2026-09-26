@@ -41,10 +41,11 @@ export const practices = [
     icon: "file",
   },
   {
-    title: "Intellectual Property Rights",
+    title: "Intellectual Property",
     description:
-      "Trademark, copyright, patent, design and intellectual-property protection.",
-    slug: "intellectual-property-rights",
+      "Strategic intellectual property support across trademarks, copyright, designs, patents, licensing, portfolio management and brand protection.",
+    slug: "intellectual-property",
+    canonicalSlug: "intellectual-property",
     icon: "bulb",
   },
   {
@@ -150,7 +151,8 @@ export const serviceBanners: Record<string, string> = {
   "business-advisory": "Part-16 .png",
   "licensing-registrations": "Part-7 .png",
   "licensing-and-registrations": "Part-7 .png",
-  "intellectual-property-rights": "Part-14 .png",
+  "intellectual-property": "intellectual-property.webp",
+  "intellectual-property-rights": "intellectual-property.webp",
   "fema-fdi-and-foreign-exchange-advisory": "Part-9 .png",
   "nclt-and-nclat-advisory": "Part-18 .png",
   "banking-nbfc-and-financial-services-advisory": "Banking & Financial Services1 .png",

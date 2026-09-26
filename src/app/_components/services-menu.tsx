@@ -10,7 +10,7 @@ import shared from "./industries-menu.module.css";
 import { isRouteActive } from "./navigation-state";
 
 const groups = [
-  { title: "Corporate & Business", caption: "Build · Grow · Transform", icon: "building", slugs: ["corporate-and-commercial-advisory", "business-advisory-consulting", "banking-nbfc-and-financial-services-advisory", "startup-and-investment-advisory", "intellectual-property-rights", "rera-and-real-estate-advisory"] },
+  { title: "Corporate & Business", caption: "Build · Grow · Transform", icon: "building", slugs: ["corporate-and-commercial-advisory", "business-advisory-consulting", "banking-nbfc-and-financial-services-advisory", "startup-and-investment-advisory", "intellectual-property", "rera-and-real-estate-advisory"] },
   { title: "Regulatory & Cross-Border", caption: "Comply · Navigate · Expand", icon: "shield", slugs: ["regulatory-and-compliance", "licensing-registrations", "fema-fdi-and-foreign-exchange-advisory", "gst-and-indirect-tax-regulatory-support", "cross-border-and-international-business-support"] },
   { title: "Disputes & Tribunals", caption: "Resolve · Represent · Protect", icon: "scale", slugs: ["litigation-dispute-resolution", "nclt-and-nclat-advisory", "msme-advisory-and-disputes", "arbitration-and-conciliation", "drt-and-drat-matters", "nclt-and-nclat-matters", "aft-and-cat-advisory-matters"] },
   { title: "People, Risk & Sustainability", caption: "Empower · Assure · Create Impact", icon: "people", slugs: ["hr-and-employment-advisory", "risk-governance-and-forensic-advisory", "esg-and-sustainability-advisory"] },
