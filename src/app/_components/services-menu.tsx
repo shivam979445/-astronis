@@ -14,6 +14,7 @@ const groups = [
   { title: "Regulatory & Cross-Border", caption: "Comply · Navigate · Expand", icon: "shield", slugs: ["regulatory-and-compliance", "licensing-registrations", "fema-fdi-cross-border", "taxation-compliance", "gst-and-indirect-tax-regulatory-support", "cross-border-and-international-business-support"] },
   { title: "Disputes & Tribunals", caption: "Resolve · Represent · Protect", icon: "scale", slugs: ["litigation-dispute-resolution", "insolvency-restructuring", "nclt-and-nclat-advisory", "msme-advisory-and-disputes", "arbitration-and-conciliation", "drt-and-drat-matters", "nclt-and-nclat-matters", "aft-and-cat-advisory-matters"] },
   { title: "People, Risk & Sustainability", caption: "Empower · Assure · Create Impact", icon: "people", slugs: ["hr-employment-labour", "risk-forensics-investigations", "risk-governance-and-forensic-advisory", "esg-sustainability"] },
+  { title: "Technology, Privacy & Digital", caption: "Protect · Govern · Digitise", icon: "laptop", slugs: ["technology-privacy-digital", "data-protection-privacy", "dpdp-compliance", "privacy-policies", "technology-contracts", "saas-agreements", "it-agreements", "data-processing-agreements", "cybersecurity-regulatory-advisory", "e-commerce-regulatory", "digital-business-advisory", "fintech-regulatory", "technology-transactions", "ai-governance-regulatory-advisory"] },
 ] as const;
 
 const bySlug = new Map(practices.map((practice) => [practice.slug, practice]));

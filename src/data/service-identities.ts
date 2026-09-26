@@ -105,6 +105,14 @@ export const practices = [
     icon: "globe",
   },
   {
+    title: "Technology, Privacy & Digital",
+    description:
+      "Integrated advisory for data privacy, DPDP compliance, technology contracts, SaaS, cybersecurity regulation, digital businesses, FinTech, technology transactions and emerging AI governance requirements.",
+    slug: "technology-privacy-digital",
+    canonicalSlug: "technology-privacy-digital",
+    icon: "laptop",
+  },
+  {
     title: "NCLT & NCLAT Advisory",
     description: "Advisory and representation for corporate insolvency and tribunal matters.",
     slug: "nclt-and-nclat-advisory",
@@ -219,5 +227,7 @@ export const serviceBanners: Record<string, string> = {
   "risk-governance-and-forensic-advisory": "Part-8 .png",
   "esg-sustainability": "esg-and-sustainability-advisory.webp",
   "esg-and-sustainability-advisory": "esg-and-sustainability-advisory.webp",
+  "technology-privacy-digital": "Banner- Technology & Digital Solutions.png",
+  "technology-and-digital": "Banner- Technology & Digital Solutions.png",
   "cross-border-and-international-business-support": "Part-9 .png",
 };

@@ -75,6 +75,21 @@ const riskForensicsMappings: Capability[] = [
   { title: "White-Collar Advisory", children: ["Regulatory response", "Governance and stakeholder coordination"], sourceRow: 438 },
   { title: "Anti-Bribery / Ethics Framework", children: ["Ethics policy", "Third-party risk and reporting controls"], sourceRow: 439 },
 ];
+const technologyPrivacyMappings: Capability[] = [
+  { title: "Data Protection & Privacy", children: ["Privacy programme design", "Data handling and governance review"], sourceRow: 450 },
+  { title: "DPDP Compliance", children: ["Process review", "Notice and consent governance"], sourceRow: 451 },
+  { title: "Privacy Policies", children: ["Policy drafting", "Operational process design"], sourceRow: 452 },
+  { title: "Technology Contracts", children: ["Contract review", "Commercial and risk allocation checks"], sourceRow: 453 },
+  { title: "SaaS Agreements", children: ["Subscription review", "Data, security and exit terms"], sourceRow: 454 },
+  { title: "IT Agreements", children: ["Service design", "Operational delivery and governance"], sourceRow: 455 },
+  { title: "Data Processing Agreements", children: ["Processor obligations", "Security and incident response mapping"], sourceRow: 456 },
+  { title: "Cybersecurity Regulatory Advisory", children: ["Risk mapping", "Incident readiness and governance"], sourceRow: 457 },
+  { title: "E-Commerce Regulatory", children: ["Consumer obligations", "Platform and digital commerce review"], sourceRow: 458 },
+  { title: "Digital Business Advisory", children: ["Operating model", "Growth and governance planning"], sourceRow: 459 },
+  { title: "FinTech Regulatory", children: ["Product review", "Payments and compliance mapping"], sourceRow: 460 },
+  { title: "Technology Transactions", children: ["Deal structuring", "Licensing and transaction review"], sourceRow: 461 },
+  { title: "AI Governance & Regulatory Advisory", children: ["AI governance", "Responsible deployment and oversight"], sourceRow: 462 },
+];
 
 const descriptions = [
  "Plan the corporate lifecycle with connected advice on entity formation, ownership structures, governance, commercial contracts and transactions. Coordinate legal due diligence, shareholder arrangements and restructuring around the operating needs of your business and its next stage of growth.",
@@ -103,13 +118,19 @@ const descriptions = [
  "Translate sustainability objectives into governance, risk and compliance priorities. Support ESG strategy, environmental regulatory matters, due diligence and reporting coordination, helping businesses organise responsibilities and evidence within a practical framework for responsible business operations and stakeholder communication.",
  "Coordinate India entry and overseas expansion across entity selection, investment structures and regulatory requirements. Connect international joint ventures, cross-border transactions and foreign collaboration with ongoing business support and tax coordination, keeping jurisdictions and commercial objectives in view.",
 ];
-const filters = ["Corporate", "Regulatory", "Legal", "Business", "Compliance", "Legal", "International", "Tax & Compliance", "Banking & Financial Services", "Insolvency & Restructuring", "People & Employment", "Legal", "Regulatory", "Transactions", "Compliance", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Compliance", "Risk", "Risk", "Sustainability", "International"];
-export const serviceBanners: Record<string, string> = { ...banners, "aft-and-cat-advisory-matters": "legal-professionals-hero.png", "insolvency-restructuring": "Banner-Technology & Digital.png", "hr-employment-labour": "Banner- Client & Enterprise Portals .png", "risk-forensics-investigations": "Banner- Cybersecurity & Data Protection .png", "esg-sustainability": "esg-and-sustainability-advisory.webp" };
+const filters = ["Corporate", "Regulatory", "Legal", "Business", "Compliance", "Legal", "International", "Tax & Compliance", "Banking & Financial Services", "Insolvency & Restructuring", "People & Employment", "Legal", "Regulatory", "Transactions", "Compliance", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Compliance", "Risk", "Risk", "Sustainability", "Technology & Digital", "International"];
+export const serviceBanners: Record<string, string> = { ...banners, "aft-and-cat-advisory-matters": "legal-professionals-hero.png", "insolvency-restructuring": "Banner-Technology & Digital.png", "hr-employment-labour": "Banner- Client & Enterprise Portals .png", "risk-forensics-investigations": "Banner- Cybersecurity & Data Protection .png", "esg-sustainability": "esg-and-sustainability-advisory.webp", "technology-privacy-digital": "Banner- Technology & Digital Solutions.png" };
 export const services = identities.map((service, index) => {
-  const serviceGroups = service.slug === "risk-forensics-investigations" ? riskForensicsMappings : safeMapping(index);
+  const serviceGroups = service.slug === "risk-forensics-investigations"
+    ? riskForensicsMappings
+    : service.slug === "technology-privacy-digital"
+      ? technologyPrivacyMappings
+      : safeMapping(index);
   const headline = service.slug === "risk-forensics-investigations"
     ? "Strategic risk, control, forensic and investigation advisory supporting organisations in identifying vulnerabilities, strengthening controls and responding to complex compliance concerns."
-    : safeDescription(index);
+    : service.slug === "technology-privacy-digital"
+      ? "Integrated advisory for privacy, data protection, digital operations, technology contracts, cybersecurity, AI governance and digital business regulation."
+      : safeDescription(index);
 
   return {
     ...service,
@@ -130,8 +151,10 @@ export const services = identities.map((service, index) => {
                 ? "/technology&digital/Banner- Cybersecurity & Data Protection .png"
                 : service.slug === "esg-sustainability"
                   ? "/images/services/esg-and-sustainability-advisory.webp"
-                  : `/images/services/${service.slug}.webp`,
-    category: service.slug === "risk-forensics-investigations" ? "Risk & Investigations" : service.slug === "esg-sustainability" ? "Sustainability" : safeFilter(index),
+                  : service.slug === "technology-privacy-digital"
+                    ? "/technology&digital/Banner- Technology & Digital Solutions.png"
+                    : `/images/services/${service.slug}.webp`,
+    category: service.slug === "risk-forensics-investigations" ? "Risk & Investigations" : service.slug === "esg-sustainability" ? "Sustainability" : service.slug === "technology-privacy-digital" ? "Technology & Digital" : safeFilter(index),
     subServices: serviceGroups,
     // Preserve discovery of adjacent technology and specialist dispute capabilities.
     relatedCapabilities: index === 1 ? [...family(13), ...family(14), ...select(2, 4)] : [],
