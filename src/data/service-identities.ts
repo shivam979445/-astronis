@@ -34,8 +34,10 @@ export const practices = [
   },
   {
     title: "Licensing & Registrations",
-    description: "End-to-end licences, registrations and statutory approvals.",
-    slug: "licensing-and-registrations",
+    description:
+      "End-to-end licences, registrations and statutory approvals for business operations, products and institutions.",
+    slug: "licensing-registrations",
+    canonicalSlug: "licensing-registrations",
     icon: "file",
   },
   {
@@ -146,6 +148,7 @@ export const serviceBanners: Record<string, string> = {
   "business-advisory-consulting": "Part-16 .png",
   "business-advisory-and-consulting": "Part-16 .png",
   "business-advisory": "Part-16 .png",
+  "licensing-registrations": "Part-7 .png",
   "licensing-and-registrations": "Part-7 .png",
   "intellectual-property-rights": "Part-14 .png",
   "fema-fdi-and-foreign-exchange-advisory": "Part-9 .png",
