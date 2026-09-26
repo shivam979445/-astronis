@@ -103,8 +103,8 @@ const descriptions = [
  "Translate sustainability objectives into governance, risk and compliance priorities. Support ESG strategy, environmental regulatory matters, due diligence and reporting coordination, helping businesses organise responsibilities and evidence within a practical framework for responsible business operations and stakeholder communication.",
  "Coordinate India entry and overseas expansion across entity selection, investment structures and regulatory requirements. Connect international joint ventures, cross-border transactions and foreign collaboration with ongoing business support and tax coordination, keeping jurisdictions and commercial objectives in view.",
 ];
-const filters = ["Corporate", "Regulatory", "Legal", "Business", "Compliance", "Legal", "International", "Tax & Compliance", "Banking & Financial Services", "Insolvency & Restructuring", "People & Employment", "Legal", "Regulatory", "Transactions", "Compliance", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Compliance", "Risk", "Risk", "International"];
-export const serviceBanners: Record<string, string> = { ...banners, "aft-and-cat-advisory-matters": "legal-professionals-hero.png", "insolvency-restructuring": "Banner-Technology & Digital.png", "hr-employment-labour": "Banner- Client & Enterprise Portals .png", "risk-forensics-investigations": "Banner- Cybersecurity & Data Protection .png" };
+const filters = ["Corporate", "Regulatory", "Legal", "Business", "Compliance", "Legal", "International", "Tax & Compliance", "Banking & Financial Services", "Insolvency & Restructuring", "People & Employment", "Legal", "Regulatory", "Transactions", "Compliance", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Compliance", "Risk", "Risk", "Sustainability", "International"];
+export const serviceBanners: Record<string, string> = { ...banners, "aft-and-cat-advisory-matters": "legal-professionals-hero.png", "insolvency-restructuring": "Banner-Technology & Digital.png", "hr-employment-labour": "Banner- Client & Enterprise Portals .png", "risk-forensics-investigations": "Banner- Cybersecurity & Data Protection .png", "esg-sustainability": "esg-and-sustainability-advisory.webp" };
 export const services = identities.map((service, index) => {
   const serviceGroups = service.slug === "risk-forensics-investigations" ? riskForensicsMappings : safeMapping(index);
   const headline = service.slug === "risk-forensics-investigations"
@@ -128,8 +128,10 @@ export const services = identities.map((service, index) => {
               ? "/technology&digital/Banner- Client & Enterprise Portals .png"
               : service.slug === "risk-forensics-investigations"
                 ? "/technology&digital/Banner- Cybersecurity & Data Protection .png"
-                : `/images/services/${service.slug}.webp`,
-    category: service.slug === "risk-forensics-investigations" ? "Risk & Investigations" : safeFilter(index),
+                : service.slug === "esg-sustainability"
+                  ? "/images/services/esg-and-sustainability-advisory.webp"
+                  : `/images/services/${service.slug}.webp`,
+    category: service.slug === "risk-forensics-investigations" ? "Risk & Investigations" : service.slug === "esg-sustainability" ? "Sustainability" : safeFilter(index),
     subServices: serviceGroups,
     // Preserve discovery of adjacent technology and specialist dispute capabilities.
     relatedCapabilities: index === 1 ? [...family(13), ...family(14), ...select(2, 4)] : [],

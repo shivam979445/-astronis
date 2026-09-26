@@ -97,6 +97,14 @@ export const practices = [
     icon: "search",
   },
   {
+    title: "ESG & Sustainability",
+    description:
+      "Strategic ESG and sustainability advisory covering environmental, social and governance frameworks, risk assessment, governance, reporting coordination and responsible-business practices.",
+    slug: "esg-sustainability",
+    canonicalSlug: "esg-sustainability",
+    icon: "globe",
+  },
+  {
     title: "NCLT & NCLAT Advisory",
     description: "Advisory and representation for corporate insolvency and tribunal matters.",
     slug: "nclt-and-nclat-advisory",
@@ -170,12 +178,6 @@ export const practices = [
     icon: "search",
   },
   {
-    title: "ESG & Sustainability Advisory",
-    description: "Practical ESG, sustainability, reporting and governance advisory.",
-    slug: "esg-and-sustainability-advisory",
-    icon: "globe",
-  },
-  {
     title: "Cross-Border & International Business Support",
     description: "Support for international expansion, India entry and cross-border transactions.",
     slug: "cross-border-and-international-business-support",
@@ -215,6 +217,7 @@ export const serviceBanners: Record<string, string> = {
   "rera-and-real-estate-advisory": "Real Estate & Construction .png",
   "gst-and-indirect-tax-regulatory-support": "Banking & Financial Services1 .png",
   "risk-governance-and-forensic-advisory": "Part-8 .png",
-  "esg-and-sustainability-advisory": "Part-5 .png",
+  "esg-sustainability": "esg-and-sustainability-advisory.webp",
+  "esg-and-sustainability-advisory": "esg-and-sustainability-advisory.webp",
   "cross-border-and-international-business-support": "Part-9 .png",
 };

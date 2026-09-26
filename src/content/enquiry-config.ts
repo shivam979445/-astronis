@@ -230,12 +230,17 @@ export const serviceRequirementMap: Record<string, string[]> = {
     "Investigations",
     "Other",
   ],
-  "ESG & Sustainability Advisory": [
+  "ESG & Sustainability": [
+    "ESG Advisory",
     "ESG Strategy",
-    "Reporting",
-    "Governance Review",
-    "Risk & Controls",
-    "Sustainability Compliance",
+    "Sustainability Framework",
+    "ESG Compliance",
+    "Environmental Regulatory",
+    "Governance Advisory",
+    "ESG Risk Assessment",
+    "ESG Due Diligence",
+    "Sustainability Reporting Coordination",
+    "Responsible Business Advisory",
     "Other",
   ],
   "Cross-Border & International Business Support": [
