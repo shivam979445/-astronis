@@ -258,6 +258,34 @@ export const serviceFaqs: Record<string, [string, string][]> = {
       "We begin by understanding the client’s objectives and facts, then identify the key issues, assess legal and regulatory implications, and develop a practical implementation strategy.",
     ],
   ],
+  "business-advisory-consulting": [
+    [
+      "How is business advisory different from legal advisory?",
+      "Legal advisory addresses rights, obligations, contracts and legal risk, while business advisory considers the broader commercial and operational consequences. We integrate both perspectives to support practical decision-making.",
+    ],
+    [
+      "What does business advisory cover?",
+      "Our business advisory support typically covers strategy, growth planning, market entry, fundraising, management systems, operational improvement and transformation advisory aligned to the client’s business stage.",
+    ],
+    [
+      "Can you support startups and growth-stage businesses?",
+      "Yes. We support founders and businesses with structure, investment readiness, operating planning, founder arrangements and commercialization decisions as their business evolves.",
+    ],
+  ],
+  "business-advisory-and-consulting": [
+    [
+      "How is business advisory different from legal advisory?",
+      "Legal advisory addresses rights, obligations, contracts and legal risk, while business advisory considers the broader commercial and operational consequences. We integrate both perspectives to support practical decision-making.",
+    ],
+    [
+      "What does business advisory cover?",
+      "Our business advisory support typically covers strategy, growth planning, market entry, fundraising, management systems, operational improvement and transformation advisory aligned to the client’s business stage.",
+    ],
+    [
+      "Can you support startups and growth-stage businesses?",
+      "Yes. We support founders and businesses with structure, investment readiness, operating planning, founder arrangements and commercialization decisions as their business evolves.",
+    ],
+  ],
   "banking-rbi-nbfc": [
     [
       "Does Astronis Global advise financial services businesses?",

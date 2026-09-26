@@ -27,8 +27,9 @@ export const practices = [
   {
     title: "Business Advisory & Consulting",
     description:
-      "Strategic business advisory, risk management, transactions and transformation.",
-    slug: "business-advisory-and-consulting",
+      "Strategic business advisory supporting growth, market entry, investment, transformation and operational decision-making.",
+    slug: "business-advisory-consulting",
+    canonicalSlug: "business-advisory-consulting",
     icon: "chart",
   },
   {
@@ -142,7 +143,9 @@ export const serviceBanners: Record<string, string> = {
   "regulatory-and-compliance": "Part-8 .png",
   "litigation-dispute-resolution": "Part-6 .png",
   "litigation-and-dispute-resolution": "Part-6 .png",
+  "business-advisory-consulting": "Part-16 .png",
   "business-advisory-and-consulting": "Part-16 .png",
+  "business-advisory": "Part-16 .png",
   "licensing-and-registrations": "Part-7 .png",
   "intellectual-property-rights": "Part-14 .png",
   "fema-fdi-and-foreign-exchange-advisory": "Part-9 .png",
