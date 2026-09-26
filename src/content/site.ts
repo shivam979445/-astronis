@@ -216,6 +216,20 @@ export const serviceFaqs: Record<string, [string, string][]> = {
       "Yes. We assist businesses in identifying core IP assets and developing protection strategies through registration, contractual protection, licensing and enforcement measures.",
     ],
   ],
+  "litigation-dispute-resolution": [
+    [
+      "Does Astronis Global handle litigation?",
+      "Yes. Our legal and dispute-resolution capabilities cover civil, commercial, banking, insolvency, MSME, arbitration and intellectual-property disputes before the appropriate forums.",
+    ],
+    [
+      "Do you represent clients before NCLT and NCLAT?",
+      "Yes. We provide representation and advisory support in appropriate matters under the National Company Law Tribunal and National Company Law Appellate Tribunal.",
+    ],
+    [
+      "Can you assist before litigation begins?",
+      "Yes. Early assessment can help identify commercial and procedural options before formal proceedings begin, including notices, negotiation and settlement strategy.",
+    ],
+  ],
   "litigation-and-dispute-resolution": [
     [
       "Does Astronis Global handle litigation?",

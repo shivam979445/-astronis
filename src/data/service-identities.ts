@@ -17,10 +17,11 @@ export const practices = [
     icon: "shield",
   },
   {
-    title: "Custom & Excise Advisory Services",
+    title: "Litigation & Dispute Resolution",
     description:
-      "Customs, excise and trade advisory support with a practical compliance lens.",
-    slug: "litigation-and-dispute-resolution",
+      "Strategic representation and dispute advisory across civil, commercial, corporate, banking, arbitration, tribunal and economic-offence matters.",
+    slug: "litigation-dispute-resolution",
+    canonicalSlug: "litigation-dispute-resolution",
     icon: "scale",
   },
   {
@@ -139,6 +140,7 @@ export const practices = [
 export const serviceBanners: Record<string, string> = {
   "corporate-and-commercial-advisory": "Part-10 .png",
   "regulatory-and-compliance": "Part-8 .png",
+  "litigation-dispute-resolution": "Part-6 .png",
   "litigation-and-dispute-resolution": "Part-6 .png",
   "business-advisory-and-consulting": "Part-16 .png",
   "licensing-and-registrations": "Part-7 .png",

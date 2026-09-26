@@ -11,7 +11,7 @@ const existing = (...titles: string[]): Capability[] => titles.map(title => ({ t
 const mappings: Capability[][] = [
  family(0),
  family(1),
- existing("Customs Advisory", "Excise Advisory", "Trade Advisory", "Compliance Support"),
+ family(2),
  [...family(3), ...select(2, 0, 5)],
  family(4), family(5), family(6),
  [...select(2, 1), ...family(9)], family(8), select(3, 1, 2), family(10),
@@ -25,7 +25,7 @@ const mappings: Capability[][] = [
 const descriptions = [
  "Plan the corporate lifecycle with connected advice on entity formation, ownership structures, governance, commercial contracts and transactions. Coordinate legal due diligence, shareholder arrangements and restructuring around the operating needs of your business and its next stage of growth.",
  "Understand and organise obligations across corporate, financial and sector regulation. Build compliance frameworks, coordinate filings and approvals, and address technology, privacy and digital business requirements with a practical view of responsibilities, regulatory change and ongoing oversight.",
- "Navigate customs, excise and trade matters with a practical focus on documentation, regulatory obligations and commercial operations. Bring together the facts of your transactions, compliance questions and business priorities to define the appropriate scope of advisory support.",
+ "Strategic representation and dispute advisory across courts, tribunals, arbitration, banking recovery, special forums and economic-offence matters, helping clients assess legal rights, forum selection and practical resolution steps.",
  "Connect business strategy with the legal and regulatory decisions that shape implementation. Support market entry, growth, organisational design, investments and management processes, with coordinated advice when commercial disputes or investigation issues affect business plans and operating relationships.",
  "Identify and coordinate registrations, licences and permissions relevant to your business model. Support business, food and consumer, industrial and institutional requirements, bringing application documents, product obligations and sector approvals into a clear plan for establishment and ongoing operations.",
  "Protect and manage intellectual property through trademark, copyright, design and patent support. Connect registration, portfolio management, licensing and enforcement strategy with commercial objectives, including brand protection, transaction due diligence and patent prosecution through appropriately qualified professionals.",
@@ -45,7 +45,7 @@ const descriptions = [
  "Translate sustainability objectives into governance, risk and compliance priorities. Support ESG strategy, environmental regulatory matters, due diligence and reporting coordination, helping businesses organise responsibilities and evidence within a practical framework for responsible business operations and stakeholder communication.",
  "Coordinate India entry and overseas expansion across entity selection, investment structures and regulatory requirements. Connect international joint ventures, cross-border transactions and foreign collaboration with ongoing business support and tax coordination, keeping jurisdictions and commercial objectives in view.",
 ];
-const filters = ["Corporate", "Regulatory", "Regulatory", "Corporate", "Compliance", "Legal", "International", "Legal", "Regulatory", "Transactions", "Compliance", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Compliance", "Risk", "Risk", "International"];
+const filters = ["Corporate", "Regulatory", "Legal", "Corporate", "Compliance", "Legal", "International", "Legal", "Regulatory", "Transactions", "Compliance", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Compliance", "Risk", "Risk", "International"];
 export const serviceBanners: Record<string, string> = { ...banners, "aft-and-cat-advisory-matters": "legal-professionals-hero.png" };
 export const services = identities.map((service, index) => ({
  ...service,
