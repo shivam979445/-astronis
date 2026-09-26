@@ -13,7 +13,7 @@ const mappings: Capability[][] = [
  family(1),
  family(2),
  [...family(3), ...select(2, 0, 5)],
- family(4), family(5), family(6),
+ family(4), family(5), family(6), family(7),
  [...select(2, 1), ...family(9)], family(8), select(3, 1, 2), family(10),
  [...select(3, 0), { title: "MSME / MSEFC", children: ["Udyam / MSME", "MSME Arbitration"], sourceRow: 133 }],
  select(2, 3), select(2, 2),
@@ -30,6 +30,7 @@ const descriptions = [
  "Identify and coordinate registrations, licences and permissions relevant to your business model. Support business, food and consumer, industrial and institutional requirements, bringing application documents, product obligations and sector approvals into a clear plan for establishment and ongoing operations.",
  "Protect and manage intellectual property through trademark, copyright, design and patent support. Connect registration, portfolio management, licensing and enforcement strategy with commercial objectives, including brand protection, transaction due diligence and patent prosecution through appropriately qualified professionals.",
  "Structure foreign investment and cross-border activity with attention to foreign exchange obligations. Coordinate FEMA, FDI, ODI and external commercial borrowing matters, including entry routes, reporting, share transfers, overseas ventures and repatriation within the broader commercial context of each transaction.",
+ "Coordinate tax obligations across direct tax, GST, transaction tax and international tax matters, helping businesses interpret obligations and integrate compliance with business, investment and cross-border decisions.",
  "Coordinate corporate tribunal and insolvency matters from initial assessment through proceedings and resolution planning. Support company law disputes, creditor and debtor considerations, restructuring options and closure requirements with attention to documentation, procedural stages and the business context of the matter.",
  "Support banking and financial services businesses across regulatory, governance and transactional requirements. Address RBI matters, NBFC formation and compliance, payment systems, FinTech and lending documentation, connecting financial regulation with operational priorities and debt or restructuring considerations.",
  "Help founders and investors prepare for formation, fundraising and growth. Align startup structuring, founder arrangements, investment readiness, ESOP planning and compliance with commercial due diligence and transaction support, so decisions reflect both business ambitions and investment requirements.",
@@ -45,14 +46,14 @@ const descriptions = [
  "Translate sustainability objectives into governance, risk and compliance priorities. Support ESG strategy, environmental regulatory matters, due diligence and reporting coordination, helping businesses organise responsibilities and evidence within a practical framework for responsible business operations and stakeholder communication.",
  "Coordinate India entry and overseas expansion across entity selection, investment structures and regulatory requirements. Connect international joint ventures, cross-border transactions and foreign collaboration with ongoing business support and tax coordination, keeping jurisdictions and commercial objectives in view.",
 ];
-const filters = ["Corporate", "Regulatory", "Legal", "Business", "Compliance", "Legal", "International", "Legal", "Regulatory", "Transactions", "Compliance", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Compliance", "Risk", "Risk", "International"];
+const filters = ["Corporate", "Regulatory", "Legal", "Business", "Compliance", "Legal", "International", "Tax & Compliance", "Legal", "Regulatory", "Transactions", "Compliance", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Compliance", "Risk", "Risk", "International"];
 export const serviceBanners: Record<string, string> = { ...banners, "aft-and-cat-advisory-matters": "legal-professionals-hero.png" };
 export const services = identities.map((service, index) => ({
  ...service,
  canonicalSlug: service.canonicalSlug || service.slug,
  number: String(index + 1).padStart(2, "0"),
  shortDescription: descriptions[index],
- image: `/images/services/${service.slug}.webp`,
+ image: service.slug === "taxation-compliance" ? "/images/services/taxation-compliance.svg" : `/images/services/${service.slug}.webp`,
  category: filters[index],
  subServices: mappings[index],
  // Preserve discovery of adjacent technology and specialist dispute capabilities.

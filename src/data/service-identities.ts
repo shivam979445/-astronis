@@ -57,6 +57,14 @@ export const practices = [
     icon: "globe",
   },
   {
+    title: "Taxation & Compliance",
+    description:
+      "Integrated support across direct tax, GST, transaction tax coordination and international tax matters for businesses, investors and cross-border transactions.",
+    slug: "taxation-compliance",
+    canonicalSlug: "taxation-compliance",
+    icon: "document",
+  },
+  {
     title: "NCLT & NCLAT Advisory",
     description: "Advisory and representation for corporate insolvency and tribunal matters.",
     slug: "nclt-and-nclat-advisory",
@@ -156,6 +164,8 @@ export const serviceBanners: Record<string, string> = {
   "intellectual-property-rights": "intellectual-property.webp",
   "fema-fdi-cross-border": "fema-fdi-cross-border.webp",
   "fema-fdi-and-foreign-exchange-advisory": "fema-fdi-cross-border.webp",
+  "taxation-compliance": "taxation-compliance.svg",
+  "taxation-and-compliance": "taxation-compliance.svg",
   "nclt-and-nclat-advisory": "Part-18 .png",
   "banking-nbfc-and-financial-services-advisory": "Banking & Financial Services1 .png",
   "startup-and-investment-advisory": "Startups & Emerging Businesses .png",

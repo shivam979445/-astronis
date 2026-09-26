@@ -202,6 +202,20 @@ export const serviceFaqs: Record<string, [string, string][]> = {
       "Yes. We advise on overseas expansion, foreign investment structures, international collaborations and cross-border legal considerations subject to the relevant jurisdictional requirements.",
     ],
   ],
+  "taxation-and-compliance": [
+    [
+      "What does Astronis Global cover under taxation and compliance?",
+      "Our taxation and compliance capability covers direct tax, GST, transaction tax coordination and international tax matters, including compliance review, documentation and practical advisory support for businesses and investors.",
+    ],
+    [
+      "Do you assist with GST and indirect tax issues?",
+      "Yes. We support clients across GST registration, returns, refund and notice issues, alongside broader indirect-tax planning and compliance review in the context of business operations and transactions.",
+    ],
+    [
+      "Can taxation advice support cross-border transactions?",
+      "Yes. Tax considerations often arise in foreign investment, financing and cross-border business arrangements. We help assess the tax implications and coordinate the relevant documentation and compliance path within the wider transaction strategy.",
+    ],
+  ],
   "intellectual-property": [
     [
       "Does Astronis Global provide trademark registration services?",
