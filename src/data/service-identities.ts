@@ -113,6 +113,14 @@ export const practices = [
     icon: "laptop",
   },
   {
+    title: "Professional & Sector-Specific Advisory",
+    description:
+      "Specialist advisory for regulated industries and sector-specific business matters across healthcare, pharmaceuticals, real estate, infrastructure, manufacturing, energy, telecom, logistics and other specialised sectors.",
+    slug: "professional-sector-specific-advisory",
+    canonicalSlug: "professional-sector-specific-advisory",
+    icon: "folder",
+  },
+  {
     title: "NCLT & NCLAT Advisory",
     description: "Advisory and representation for corporate insolvency and tribunal matters.",
     slug: "nclt-and-nclat-advisory",
@@ -229,5 +237,6 @@ export const serviceBanners: Record<string, string> = {
   "esg-and-sustainability-advisory": "esg-and-sustainability-advisory.webp",
   "technology-privacy-digital": "Banner- Technology & Digital Solutions.png",
   "technology-and-digital": "Banner- Technology & Digital Solutions.png",
+  "professional-sector-specific-advisory": "Banner- Technology & Digital Solutions.png",
   "cross-border-and-international-business-support": "Part-9 .png",
 };

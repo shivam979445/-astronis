@@ -90,6 +90,25 @@ const technologyPrivacyMappings: Capability[] = [
   { title: "Technology Transactions", children: ["Deal structuring", "Licensing and transaction review"], sourceRow: 461 },
   { title: "AI Governance & Regulatory Advisory", children: ["AI governance", "Responsible deployment and oversight"], sourceRow: 462 },
 ];
+const professionalSectorSpecificMappings: Capability[] = [
+  { title: "Healthcare Regulatory", children: ["Licensing", "Compliance", "Corporate structuring"], sourceRow: 470 },
+  { title: "Pharmaceuticals", children: ["Regulatory compliance", "Manufacturing", "Distribution"], sourceRow: 471 },
+  { title: "Food & Drugs", children: ["FSSAI", "Product compliance", "Consumer regulation"], sourceRow: 472 },
+  { title: "Real Estate / RERA", children: ["RERA", "Project structuring", "Transactions"], sourceRow: 473 },
+  { title: "Infrastructure & Projects", children: ["Project approvals", "Contracts", "Risk allocation"], sourceRow: 474 },
+  { title: "Education", children: ["Institutional structure", "Compliance", "Operations"], sourceRow: 475 },
+  { title: "Hospitality", children: ["Licensing", "Franchise", "Operating agreements"], sourceRow: 476 },
+  { title: "Media & Broadcasting", children: ["Content regulation", "Licensing", "Commercial arrangements"], sourceRow: 477 },
+  { title: "Telecommunications", children: ["Regulatory review", "Infrastructure", "Licensing"], sourceRow: 478 },
+  { title: "E-Commerce", children: ["Consumer regulation", "Marketplace terms", "Privacy"], sourceRow: 479 },
+  { title: "Manufacturing", children: ["Factory approvals", "Product standards", "Industrial compliance"], sourceRow: 480 },
+  { title: "Automotive", children: ["Product compliance", "Distribution", "Dealer agreements"], sourceRow: 481 },
+  { title: "Logistics", children: ["Warehousing", "Freight contracts", "Regulatory compliance"], sourceRow: 482 },
+  { title: "Energy", children: ["Project approvals", "Environmental review", "Energy regulation"], sourceRow: 483 },
+  { title: "Environment", children: ["Environmental approvals", "Pollution control", "Sustainability"], sourceRow: 484 },
+  { title: "Defence / Marine", children: ["Licensing", "Procurement", "Cross-border structuring"], sourceRow: 485 },
+  { title: "Other Sector-Specific Regulatory Advisory", children: ["Sector mapping", "Regulatory review", "Future-proofing"], sourceRow: 486 },
+];
 
 const descriptions = [
  "Plan the corporate lifecycle with connected advice on entity formation, ownership structures, governance, commercial contracts and transactions. Coordinate legal due diligence, shareholder arrangements and restructuring around the operating needs of your business and its next stage of growth.",
@@ -118,19 +137,23 @@ const descriptions = [
  "Translate sustainability objectives into governance, risk and compliance priorities. Support ESG strategy, environmental regulatory matters, due diligence and reporting coordination, helping businesses organise responsibilities and evidence within a practical framework for responsible business operations and stakeholder communication.",
  "Coordinate India entry and overseas expansion across entity selection, investment structures and regulatory requirements. Connect international joint ventures, cross-border transactions and foreign collaboration with ongoing business support and tax coordination, keeping jurisdictions and commercial objectives in view.",
 ];
-const filters = ["Corporate", "Regulatory", "Legal", "Business", "Compliance", "Legal", "International", "Tax & Compliance", "Banking & Financial Services", "Insolvency & Restructuring", "People & Employment", "Legal", "Regulatory", "Transactions", "Compliance", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Compliance", "Risk", "Risk", "Sustainability", "Technology & Digital", "International"];
-export const serviceBanners: Record<string, string> = { ...banners, "aft-and-cat-advisory-matters": "legal-professionals-hero.png", "insolvency-restructuring": "Banner-Technology & Digital.png", "hr-employment-labour": "Banner- Client & Enterprise Portals .png", "risk-forensics-investigations": "Banner- Cybersecurity & Data Protection .png", "esg-sustainability": "esg-and-sustainability-advisory.webp", "technology-privacy-digital": "Banner- Technology & Digital Solutions.png" };
+const filters = ["Corporate", "Regulatory", "Legal", "Business", "Compliance", "Legal", "International", "Tax & Compliance", "Banking & Financial Services", "Insolvency & Restructuring", "People & Employment", "Legal", "Regulatory", "Transactions", "Compliance", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Compliance", "Risk", "Risk", "Sustainability", "Technology & Digital", "Professional & Sector-Specific Advisory", "International"];
+export const serviceBanners: Record<string, string> = { ...banners, "aft-and-cat-advisory-matters": "legal-professionals-hero.png", "insolvency-restructuring": "Banner-Technology & Digital.png", "hr-employment-labour": "Banner- Client & Enterprise Portals .png", "risk-forensics-investigations": "Banner- Cybersecurity & Data Protection .png", "esg-sustainability": "esg-and-sustainability-advisory.webp", "technology-privacy-digital": "Banner- Technology & Digital Solutions.png", "professional-sector-specific-advisory": "Banner- Technology & Digital Solutions.png" };
 export const services = identities.map((service, index) => {
   const serviceGroups = service.slug === "risk-forensics-investigations"
     ? riskForensicsMappings
     : service.slug === "technology-privacy-digital"
       ? technologyPrivacyMappings
-      : safeMapping(index);
+      : service.slug === "professional-sector-specific-advisory"
+        ? professionalSectorSpecificMappings
+        : safeMapping(index);
   const headline = service.slug === "risk-forensics-investigations"
     ? "Strategic risk, control, forensic and investigation advisory supporting organisations in identifying vulnerabilities, strengthening controls and responding to complex compliance concerns."
     : service.slug === "technology-privacy-digital"
       ? "Integrated advisory for privacy, data protection, digital operations, technology contracts, cybersecurity, AI governance and digital business regulation."
-      : safeDescription(index);
+      : service.slug === "professional-sector-specific-advisory"
+        ? "Specialist advisory for regulated industries and sector-specific business matters across healthcare, pharmaceuticals, real estate, infrastructure, manufacturing, energy, telecom, logistics and other specialised sectors."
+        : safeDescription(index);
 
   return {
     ...service,
@@ -153,8 +176,10 @@ export const services = identities.map((service, index) => {
                   ? "/images/services/esg-and-sustainability-advisory.webp"
                   : service.slug === "technology-privacy-digital"
                     ? "/technology&digital/Banner- Technology & Digital Solutions.png"
-                    : `/images/services/${service.slug}.webp`,
-    category: service.slug === "risk-forensics-investigations" ? "Risk & Investigations" : service.slug === "esg-sustainability" ? "Sustainability" : service.slug === "technology-privacy-digital" ? "Technology & Digital" : safeFilter(index),
+                    : service.slug === "professional-sector-specific-advisory"
+                      ? "/technology&digital/Banner- Technology & Digital Solutions.png"
+                      : `/images/services/${service.slug}.webp`,
+    category: service.slug === "risk-forensics-investigations" ? "Risk & Investigations" : service.slug === "esg-sustainability" ? "Sustainability" : service.slug === "technology-privacy-digital" ? "Technology & Digital" : service.slug === "professional-sector-specific-advisory" ? "Professional & Sector Advisory" : safeFilter(index),
     subServices: serviceGroups,
     // Preserve discovery of adjacent technology and specialist dispute capabilities.
     relatedCapabilities: index === 1 ? [...family(13), ...family(14), ...select(2, 4)] : [],

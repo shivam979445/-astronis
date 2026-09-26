@@ -70,7 +70,7 @@ export default async function ServicePage({
   params: Promise<{ slug: string[] }>;
 }) {
   const slugs = (await params).slug;
-  const alias = slugs.length === 1 && servicePractices.find(practice => practice.aliases.includes(slugs[0]));
+  const alias = slugs.length === 1 && servicePractices.find((practice) => practice.slug !== slugs[0] && practice.aliases.includes(slugs[0]));
   if (alias) permanentRedirect(practicePath(alias));
   const detailed = resolvePractice(slugs);
   if (detailed) {
