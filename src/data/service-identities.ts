@@ -89,6 +89,14 @@ export const practices = [
     icon: "people",
   },
   {
+    title: "Risk, Forensics & Investigations",
+    description:
+      "Strategic risk, control, forensic and investigation advisory supporting organisations in identifying vulnerabilities, strengthening controls and responding to complex compliance concerns.",
+    slug: "risk-forensics-investigations",
+    canonicalSlug: "risk-forensics-investigations",
+    icon: "search",
+  },
+  {
     title: "NCLT & NCLAT Advisory",
     description: "Advisory and representation for corporate insolvency and tribunal matters.",
     slug: "nclt-and-nclat-advisory",
@@ -196,6 +204,7 @@ export const serviceBanners: Record<string, string> = {
   "insolvency-and-restructuring": "Banner-Technology & Digital.png",
   "hr-employment-labour": "Banner- Client & Enterprise Portals .png",
   "hr-and-employment-advisory": "Banner- Client & Enterprise Portals .png",
+  "risk-forensics-investigations": "Banner- Cybersecurity & Data Protection .png",
   "nclt-and-nclat-advisory": "Part-18 .png",
   "banking-nbfc-and-financial-services-advisory": "banking-nbfc-and-financial-services-advisory.webp",
   "startup-and-investment-advisory": "Startups & Emerging Businesses .png",

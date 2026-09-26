@@ -5,6 +5,9 @@ export type Capability = { title: string; children: string[]; sourceRow?: number
 const family = (index: number): Capability[] => hierarchy[index].subServices;
 const select = (index: number, ...positions: number[]) => positions.map(position => family(index)[position]);
 const existing = (...titles: string[]): Capability[] => titles.map(title => ({ title, children: [] }));
+const safeMapping = (index: number): Capability[] => mappings[index] ?? [];
+const safeDescription = (index: number): string => descriptions[index] ?? "Strategic advisory tailored to the needs of the business, transaction or regulatory matter.";
+const safeFilter = (index: number): string => filters[index] ?? "Advisory";
 
 // Workbook family/group references, in the unchanged 21-entry dropdown order.
 // Shared capabilities are referenced under each relevant practice, not renamed.
@@ -60,6 +63,19 @@ const mappings: Capability[][] = [
  [{title: "Real Estate / RERA", children: ["RERA", "Property Disputes"], sourceRow: 377}, ...existing("Project Approvals", "Land / Title Review", "Development Agreements", "Leasing", "Joint Development", "Due Diligence", "Dispute Support")],
  family(7), family(11), family(12), [...select(6, 4, 1, 2), ...select(3, 4), ...select(7, 3)],
 ];
+const riskForensicsMappings: Capability[] = [
+  { title: "Enterprise Risk Advisory", children: ["Risk identification", "Risk assessment and prioritisation"], sourceRow: 430 },
+  { title: "Internal Controls", children: ["Process and financial controls", "Monitoring and governance review"], sourceRow: 431 },
+  { title: "Fraud Risk", children: ["Fraud-risk assessment", "Preventive framework and controls"], sourceRow: 432 },
+  { title: "Forensic Review", children: ["Document review", "Transaction analysis and issue assessment"], sourceRow: 433 },
+  { title: "Corporate Investigations", children: ["Investigation planning", "Fact gathering and reporting"], sourceRow: 434 },
+  { title: "Financial Investigations", children: ["Record review", "Payment-flow and transaction analysis"], sourceRow: 435 },
+  { title: "Compliance Investigations", children: ["Policy review", "Compliance concern assessment"], sourceRow: 436 },
+  { title: "Due Diligence / Background Review", children: ["Business and ownership review", "Risk indicator analysis"], sourceRow: 437 },
+  { title: "White-Collar Advisory", children: ["Regulatory response", "Governance and stakeholder coordination"], sourceRow: 438 },
+  { title: "Anti-Bribery / Ethics Framework", children: ["Ethics policy", "Third-party risk and reporting controls"], sourceRow: 439 },
+];
+
 const descriptions = [
  "Plan the corporate lifecycle with connected advice on entity formation, ownership structures, governance, commercial contracts and transactions. Coordinate legal due diligence, shareholder arrangements and restructuring around the operating needs of your business and its next stage of growth.",
  "Understand and organise obligations across corporate, financial and sector regulation. Build compliance frameworks, coordinate filings and approvals, and address technology, privacy and digital business requirements with a practical view of responsibilities, regulatory change and ongoing oversight.",
@@ -88,27 +104,36 @@ const descriptions = [
  "Coordinate India entry and overseas expansion across entity selection, investment structures and regulatory requirements. Connect international joint ventures, cross-border transactions and foreign collaboration with ongoing business support and tax coordination, keeping jurisdictions and commercial objectives in view.",
 ];
 const filters = ["Corporate", "Regulatory", "Legal", "Business", "Compliance", "Legal", "International", "Tax & Compliance", "Banking & Financial Services", "Insolvency & Restructuring", "People & Employment", "Legal", "Regulatory", "Transactions", "Compliance", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Compliance", "Risk", "Risk", "International"];
-export const serviceBanners: Record<string, string> = { ...banners, "aft-and-cat-advisory-matters": "legal-professionals-hero.png", "insolvency-restructuring": "Banner-Technology & Digital.png", "hr-employment-labour": "Banner- Client & Enterprise Portals .png" };
-export const services = identities.map((service, index) => ({
- ...service,
- canonicalSlug: service.canonicalSlug || service.slug,
- number: String(index + 1).padStart(2, "0"),
- shortDescription: descriptions[index],
- image: service.slug === "fema-fdi-cross-border"
-   ? "/images/services/fema-fdi-and-foreign-exchange-advisory.webp"
-   : service.slug === "taxation-compliance"
-     ? "/images/services/gst-and-indirect-tax-regulatory-support.webp"
-     : service.slug === "banking-rbi-financial-services"
-       ? "/images/services/banking-nbfc-and-financial-services-advisory.webp"
-       : service.slug === "insolvency-restructuring"
-         ? "/technology&digital/Banner-Technology & Digital.png"
-         : service.slug === "hr-employment-labour"
-           ? "/technology&digital/Banner- Client & Enterprise Portals .png"
-           : `/images/services/${service.slug}.webp`,
- category: filters[index],
- subServices: mappings[index],
- // Preserve discovery of adjacent technology and specialist dispute capabilities.
- relatedCapabilities: index === 1 ? [...family(13), ...family(14), ...select(2, 4)] : [],
- highlights: mappings[index].slice(0, 4).map(group => group.title),
-}));
+export const serviceBanners: Record<string, string> = { ...banners, "aft-and-cat-advisory-matters": "legal-professionals-hero.png", "insolvency-restructuring": "Banner-Technology & Digital.png", "hr-employment-labour": "Banner- Client & Enterprise Portals .png", "risk-forensics-investigations": "Banner- Cybersecurity & Data Protection .png" };
+export const services = identities.map((service, index) => {
+  const serviceGroups = service.slug === "risk-forensics-investigations" ? riskForensicsMappings : safeMapping(index);
+  const headline = service.slug === "risk-forensics-investigations"
+    ? "Strategic risk, control, forensic and investigation advisory supporting organisations in identifying vulnerabilities, strengthening controls and responding to complex compliance concerns."
+    : safeDescription(index);
+
+  return {
+    ...service,
+    canonicalSlug: service.canonicalSlug || service.slug,
+    number: String(index + 1).padStart(2, "0"),
+    shortDescription: headline,
+    image: service.slug === "fema-fdi-cross-border"
+      ? "/images/services/fema-fdi-and-foreign-exchange-advisory.webp"
+      : service.slug === "taxation-compliance"
+        ? "/images/services/gst-and-indirect-tax-regulatory-support.webp"
+        : service.slug === "banking-rbi-financial-services"
+          ? "/images/services/banking-nbfc-and-financial-services-advisory.webp"
+          : service.slug === "insolvency-restructuring"
+            ? "/technology&digital/Banner-Technology & Digital.png"
+            : service.slug === "hr-employment-labour"
+              ? "/technology&digital/Banner- Client & Enterprise Portals .png"
+              : service.slug === "risk-forensics-investigations"
+                ? "/technology&digital/Banner- Cybersecurity & Data Protection .png"
+                : `/images/services/${service.slug}.webp`,
+    category: service.slug === "risk-forensics-investigations" ? "Risk & Investigations" : safeFilter(index),
+    subServices: serviceGroups,
+    // Preserve discovery of adjacent technology and specialist dispute capabilities.
+    relatedCapabilities: index === 1 ? [...family(13), ...family(14), ...select(2, 4)] : [],
+    highlights: serviceGroups.slice(0, 4).map(group => group.title),
+  };
+});
 export type Service = (typeof services)[number];
