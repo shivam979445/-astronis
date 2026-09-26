@@ -974,5 +974,22 @@
         "sourceRow": 390
       }
     ]
+  },
+  {
+    "title": "Banking, RBI & Financial Services",
+    "sourceRow": 391,
+    "subServices": [
+      { "title": "Banking Advisory", "children": [], "sourceRow": 392 },
+      { "title": "RBI Regulatory", "children": [], "sourceRow": 393 },
+      { "title": "NBFC Formation / Licensing Advisory", "children": [], "sourceRow": 394 },
+      { "title": "NBFC Compliance", "children": [], "sourceRow": 395 },
+      { "title": "FinTech", "children": [], "sourceRow": 396 },
+      { "title": "Payment Systems", "children": [], "sourceRow": 397 },
+      { "title": "Financial Services Regulatory", "children": [], "sourceRow": 398 },
+      { "title": "Banking Documentation", "children": [], "sourceRow": 399 },
+      { "title": "Loan / Security Documentation", "children": [], "sourceRow": 400 },
+      { "title": "Debt & Restructuring Advisory", "children": [], "sourceRow": 401 },
+      { "title": "Financial Institution Advisory", "children": [], "sourceRow": 402 }
+    ]
   }
 ]

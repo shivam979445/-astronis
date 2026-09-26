@@ -8,6 +8,8 @@ import ServiceSupport from "./service-support";
 import styles from "./service-template.module.css";
 
 export default function MainServicePage({ practice }: { practice: ServicePractice }) {
+  const isDirectServicePractice = practice.groups.every(group => group.children.length <= 1);
+
   return <div className={styles.page} data-service-template>
     <ServiceHero practice={practice} />
     <section className={styles.introduction}><div className={`container ${styles.introGrid}`}>
@@ -17,8 +19,20 @@ export default function MainServicePage({ practice }: { practice: ServicePractic
       </div>
       <div className={styles.introEditorial}><span className={styles.label}>{practice.introEyebrow || "ONE BUSINESS. CONNECTED EXPERTISE."}</span><h2>{practice.introHeading}</h2><p>{practice.introduction}</p><div className={styles.introStages}>{practice.groups.map(group => <div key={group.slug}><Icon name={group.icon} /><span>{group.shortTitle}</span></div>)}</div></div>
     </div></section>
-    <SectionNavigation variant="bar" title="Explore our capabilities" items={practice.groups.map(group => ({id:group.slug,title:group.shortTitle,icon:group.icon}))} />
-    <div id="service-groups">{practice.groups.map((group,index) => <ServiceGroupSection practice={practice} group={group} index={index} key={group.slug} />)}</div>
+    {isDirectServicePractice ? (
+      <div className={`container ${styles.detailLayout}`}>
+        <aside className={styles.detailAside}>
+          <SectionNavigation variant="sidebar" title="Explore this service" items={practice.groups.map(group => ({id: group.slug, title: group.shortTitle, icon: group.icon}))} />
+          <div className={styles.sidebarHelp}><span>LOOKING AT THE BIGGER PICTURE?</span><p>Explore the full banking and financial advisory approach and select the service that matches your requirement.</p></div>
+        </aside>
+        <div className={styles.detailContent} id="service-groups">{practice.groups.map((group,index) => <ServiceGroupSection practice={practice} group={group} index={index} key={group.slug} />)}</div>
+      </div>
+    ) : (
+      <>
+        <SectionNavigation variant="bar" title="Explore our capabilities" items={practice.groups.map(group => ({id:group.slug,title:group.shortTitle,icon:group.icon}))} />
+        <div id="service-groups">{practice.groups.map((group,index) => <ServiceGroupSection practice={practice} group={group} index={index} key={group.slug} />)}</div>
+      </>
+    )}
     <ServiceSupport practice={practice} />
   </div>;
 }

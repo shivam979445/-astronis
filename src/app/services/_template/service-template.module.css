@@ -59,6 +59,10 @@
 .groupSection:nth-child(2) { background:#f3f6fa; }
 .groupSection:nth-child(6) { background:linear-gradient(120deg,#f9fbff,#eaf1f9); }
 .groupGrid { display:grid; grid-template-columns:1fr 1.08fr; gap:85px; align-items:start; }
+.groupGridSingle { grid-template-columns:1fr; }
+.groupSectionSingle { padding:72px 0; }
+.groupSectionSingle .groupCopy { max-width:820px; }
+.groupSectionSingle .groupImage { max-width:820px; }
 .reverse .groupCopy { order:2; }
 .groupNumber { display:inline-flex; gap:9px; font:32px Georgia,serif; color:#0a4c98; margin-bottom:26px; }
 .groupNumber>span { font:12px Arial,sans-serif; color:#7e90a2; align-self:center; }

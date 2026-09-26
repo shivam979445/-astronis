@@ -65,6 +65,14 @@ export const practices = [
     icon: "document",
   },
   {
+    title: "Banking, RBI & Financial Services",
+    description:
+      "Advisory support across banking regulation, RBI matters, NBFCs, FinTech, payment systems, financial documentation, lending structures and regulated financial institutions.",
+    slug: "banking-rbi-financial-services",
+    canonicalSlug: "banking-rbi-financial-services",
+    icon: "building",
+  },
+  {
     title: "NCLT & NCLAT Advisory",
     description: "Advisory and representation for corporate insolvency and tribunal matters.",
     slug: "nclt-and-nclat-advisory",
