@@ -39,6 +39,19 @@ const mappings: Capability[][] = [
   { title: "Distressed Business Advisory", children: ["Stress assessment", "Strategic restructuring and turnaround options"], sourceRow: 409 },
   { title: "Liquidation / Closure Support", children: ["Closure strategy", "Process and stakeholder coordination"], sourceRow: 410 },
  ],
+ [
+  { title: "Employment Advisory", children: ["Workforce planning", "Employee relations and people strategy"], sourceRow: 411 },
+  { title: "Employment Contracts", children: ["Role documentation", "Employment and contractor terms"], sourceRow: 412 },
+  { title: "HR Policies", children: ["Policy design", "Workplace frameworks and governance"], sourceRow: 413 },
+  { title: "Employee Handbook", children: ["Handbook drafting", "Workplace guidance and communication"], sourceRow: 414 },
+  { title: "Labour Law Compliance", children: ["Compliance mapping", "Employment obligations and operating processes"], sourceRow: 415 },
+  { title: "POSH Advisory", children: ["POSH policy", "Workplace process and training support"], sourceRow: 416 },
+  { title: "Employee Disputes", children: ["Conflict review", "Dispute management and resolution path"], sourceRow: 417 },
+  { title: "Termination / Separation Advisory", children: ["Exit process review", "Separation documentation and risk mapping"], sourceRow: 418 },
+  { title: "Workplace Investigations", children: ["Investigation planning", "Fact review and evidence mapping"], sourceRow: 419 },
+  { title: "HR Compliance Review", children: ["People-process review", "Documentation and governance checks"], sourceRow: 420 },
+  { title: "Payroll / Statutory Coordination", children: ["Payroll alignment", "Statutory coordination and documentation"], sourceRow: 421 },
+ ],
  [...select(2, 1), ...family(9)], family(8), select(3, 1, 2), family(10),
  [...select(3, 0), { title: "MSME / MSEFC", children: ["Udyam / MSME", "MSME Arbitration"], sourceRow: 133 }],
  select(2, 3), select(2, 2),
@@ -58,6 +71,7 @@ const descriptions = [
  "Coordinate tax obligations across direct tax, GST, transaction tax and international tax matters, helping businesses interpret obligations and integrate compliance with business, investment and cross-border decisions.",
  "Advisory support across banking regulation, RBI matters, NBFCs, FinTech, payment systems, financial documentation, lending structures and regulated financial institutions.",
  "Strategic advisory for businesses, creditors, debtors and stakeholders navigating insolvency, restructuring, CIRP-related matters, tribunal proceedings and distressed situations.",
+ "People advisory for employment, workplace, labour and workforce issues, helping businesses align day-to-day people management with legal, operational and governance principles in a practical and commercially informed way.",
  "Coordinate corporate tribunal and insolvency matters from initial assessment through proceedings and resolution planning. Support company law disputes, creditor and debtor considerations, restructuring options and closure requirements with attention to documentation, procedural stages and the business context of the matter.",
  "Support banking and financial services businesses across regulatory, governance and transactional requirements. Address RBI matters, NBFC formation and compliance, payment systems, FinTech and lending documentation, connecting financial regulation with operational priorities and debt or restructuring considerations.",
  "Help founders and investors prepare for formation, fundraising and growth. Align startup structuring, founder arrangements, investment readiness, ESOP planning and compliance with commercial due diligence and transaction support, so decisions reflect both business ambitions and investment requirements.",
@@ -73,8 +87,8 @@ const descriptions = [
  "Translate sustainability objectives into governance, risk and compliance priorities. Support ESG strategy, environmental regulatory matters, due diligence and reporting coordination, helping businesses organise responsibilities and evidence within a practical framework for responsible business operations and stakeholder communication.",
  "Coordinate India entry and overseas expansion across entity selection, investment structures and regulatory requirements. Connect international joint ventures, cross-border transactions and foreign collaboration with ongoing business support and tax coordination, keeping jurisdictions and commercial objectives in view.",
 ];
-const filters = ["Corporate", "Regulatory", "Legal", "Business", "Compliance", "Legal", "International", "Tax & Compliance", "Banking & Financial Services", "Insolvency & Restructuring", "Legal", "Regulatory", "Transactions", "Compliance", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Compliance", "Risk", "Risk", "International"];
-export const serviceBanners: Record<string, string> = { ...banners, "aft-and-cat-advisory-matters": "legal-professionals-hero.png", "insolvency-restructuring": "Banner-Technology & Digital.png" };
+const filters = ["Corporate", "Regulatory", "Legal", "Business", "Compliance", "Legal", "International", "Tax & Compliance", "Banking & Financial Services", "Insolvency & Restructuring", "People & Employment", "Legal", "Regulatory", "Transactions", "Compliance", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Compliance", "Risk", "Risk", "International"];
+export const serviceBanners: Record<string, string> = { ...banners, "aft-and-cat-advisory-matters": "legal-professionals-hero.png", "insolvency-restructuring": "Banner-Technology & Digital.png", "hr-employment-labour": "Banner- Client & Enterprise Portals .png" };
 export const services = identities.map((service, index) => ({
  ...service,
  canonicalSlug: service.canonicalSlug || service.slug,
@@ -88,7 +102,9 @@ export const services = identities.map((service, index) => ({
        ? "/images/services/banking-nbfc-and-financial-services-advisory.webp"
        : service.slug === "insolvency-restructuring"
          ? "/technology&digital/Banner-Technology & Digital.png"
-         : `/images/services/${service.slug}.webp`,
+         : service.slug === "hr-employment-labour"
+           ? "/technology&digital/Banner- Client & Enterprise Portals .png"
+           : `/images/services/${service.slug}.webp`,
  category: filters[index],
  subServices: mappings[index],
  // Preserve discovery of adjacent technology and specialist dispute capabilities.
