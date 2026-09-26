@@ -1123,6 +1123,17 @@
   outline: 2px solid #e5bd78;
   outline-offset: -2px;
 }
+.opportunities .opportunity:global(.active-submenu-item) {
+  background: #315f892b;
+  box-shadow: inset 2px 0 #dfb873;
+  color: #fff;
+}
+.opportunities .opportunity:global(.active-submenu-item) small {
+  color: #e2eaf5;
+}
+.opportunities .opportunity:global(.active-submenu-item) > svg {
+  color: #e5bd78;
+}
 
 .footer {
   grid-template-columns: repeat(4, minmax(0, 1fr));
