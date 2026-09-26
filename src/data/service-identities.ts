@@ -49,10 +49,11 @@ export const practices = [
     icon: "bulb",
   },
   {
-    title: "FEMA, FDI & Foreign Exchange Advisory",
+    title: "FEMA, FDI & Cross-Border",
     description:
-      "FEMA, RBI, FDI, ODI, ECB and cross-border transaction advisory.",
-    slug: "fema-fdi-and-foreign-exchange-advisory",
+      "Advisory support for foreign exchange regulation, foreign investment, overseas investment, external commercial borrowings and cross-border business structures.",
+    slug: "fema-fdi-cross-border",
+    canonicalSlug: "fema-fdi-cross-border",
     icon: "globe",
   },
   {
@@ -153,7 +154,8 @@ export const serviceBanners: Record<string, string> = {
   "licensing-and-registrations": "Part-7 .png",
   "intellectual-property": "intellectual-property.webp",
   "intellectual-property-rights": "intellectual-property.webp",
-  "fema-fdi-and-foreign-exchange-advisory": "Part-9 .png",
+  "fema-fdi-cross-border": "fema-fdi-cross-border.webp",
+  "fema-fdi-and-foreign-exchange-advisory": "fema-fdi-cross-border.webp",
   "nclt-and-nclat-advisory": "Part-18 .png",
   "banking-nbfc-and-financial-services-advisory": "Banking & Financial Services1 .png",
   "startup-and-investment-advisory": "Startups & Emerging Businesses .png",
