@@ -138,7 +138,22 @@ const descriptions = [
  "Coordinate India entry and overseas expansion across entity selection, investment structures and regulatory requirements. Connect international joint ventures, cross-border transactions and foreign collaboration with ongoing business support and tax coordination, keeping jurisdictions and commercial objectives in view.",
 ];
 const filters = ["Corporate", "Regulatory", "Legal", "Business", "Compliance", "Legal", "International", "Tax & Compliance", "Banking & Financial Services", "Insolvency & Restructuring", "People & Employment", "Legal", "Regulatory", "Transactions", "Compliance", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Legal", "Compliance", "Risk", "Risk", "Sustainability", "Technology & Digital", "Professional & Sector-Specific Advisory", "International"];
-export const serviceBanners: Record<string, string> = { ...banners, "aft-and-cat-advisory-matters": "legal-professionals-hero.png", "insolvency-restructuring": "Banner-Technology & Digital.png", "hr-employment-labour": "Banner- Client & Enterprise Portals .png", "risk-forensics-investigations": "Banner- Cybersecurity & Data Protection .png", "esg-sustainability": "esg-and-sustainability-advisory.webp", "technology-privacy-digital": "Banner- Technology & Digital Solutions.png", "professional-sector-specific-advisory": "Banner- Technology & Digital Solutions.png" };
+const resolveServiceBannerPath = (slug: string, fallback?: string) => {
+  const candidate = fallback?.trim();
+  if (!candidate) return `/images/services/${slug}.webp`;
+  return candidate.startsWith("/") ? candidate : `/${candidate}`;
+};
+
+export const serviceBanners: Record<string, string> = {
+  ...banners,
+  "aft-and-cat-advisory-matters": "/images/services/aft-and-cat-advisory-matters.webp",
+  "insolvency-restructuring": "/images/services/insolvency-restructuring.svg",
+  "hr-employment-labour": "/images/services/hr-and-employment-advisory.webp",
+  "risk-forensics-investigations": "/images/services/risk-governance-and-forensic-advisory.webp",
+  "esg-sustainability": "/images/services/esg-and-sustainability-advisory.webp",
+  "technology-privacy-digital": "/Technology&Digital/Banner- Technology & Digital Solutions.png",
+  "professional-sector-specific-advisory": "/Technology&Digital/Banner- Technology & Digital Solutions.png",
+};
 export const services = identities.map((service, index) => {
   const serviceGroups = service.slug === "risk-forensics-investigations"
     ? riskForensicsMappings
@@ -160,25 +175,7 @@ export const services = identities.map((service, index) => {
     canonicalSlug: service.canonicalSlug || service.slug,
     number: String(index + 1).padStart(2, "0"),
     shortDescription: headline,
-    image: service.slug === "fema-fdi-cross-border"
-      ? "/images/services/fema-fdi-and-foreign-exchange-advisory.webp"
-      : service.slug === "taxation-compliance"
-        ? "/images/services/gst-and-indirect-tax-regulatory-support.webp"
-        : service.slug === "banking-rbi-financial-services"
-          ? "/images/services/banking-nbfc-and-financial-services-advisory.webp"
-          : service.slug === "insolvency-restructuring"
-            ? "/technology&digital/Banner-Technology & Digital.png"
-            : service.slug === "hr-employment-labour"
-              ? "/technology&digital/Banner- Client & Enterprise Portals .png"
-              : service.slug === "risk-forensics-investigations"
-                ? "/technology&digital/Banner- Cybersecurity & Data Protection .png"
-                : service.slug === "esg-sustainability"
-                  ? "/images/services/esg-and-sustainability-advisory.webp"
-                  : service.slug === "technology-privacy-digital"
-                    ? "/technology&digital/Banner- Technology & Digital Solutions.png"
-                    : service.slug === "professional-sector-specific-advisory"
-                      ? "/technology&digital/Banner- Technology & Digital Solutions.png"
-                      : `/images/services/${service.slug}.webp`,
+    image: resolveServiceBannerPath(service.slug, serviceBanners[service.slug]),
     category: service.slug === "risk-forensics-investigations" ? "Risk & Investigations" : service.slug === "esg-sustainability" ? "Sustainability" : service.slug === "technology-privacy-digital" ? "Technology & Digital" : service.slug === "professional-sector-specific-advisory" ? "Professional & Sector Advisory" : safeFilter(index),
     subServices: serviceGroups,
     // Preserve discovery of adjacent technology and specialist dispute capabilities.

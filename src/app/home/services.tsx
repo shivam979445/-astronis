@@ -15,7 +15,7 @@ export default function Services() {
             <article className="practice-card" key={p.slug}>
               <div className="card-image">
                 <Image
-                  src={"/" + serviceBanners[p.slug]}
+                  src={serviceBanners[p.slug] ?? "/explore_services.png"}
                   alt={p.title}
                   fill
                   sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 25vw"
