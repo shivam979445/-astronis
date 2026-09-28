@@ -1,8 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 import AssetImage from "../_components/asset-image";
 import Icon from "../_components/icon";
 import { corporateArticles } from "@/content/corporate-articles";
-import { countries, industries, slugify } from "@/content/site";
+import { industries } from "@/content/site";
 import styles from "./global-presence.module.css";
 
 export const metadata = {
@@ -21,51 +22,58 @@ const metrics = [
 const regionCards = [
   {
     name: "India",
+    flag: "/flag/Flag_of_India.svg.webp",
     description: "Our home market and primary platform for enterprise, regulatory and transaction advisory across key growth sectors.",
     tags: ["India Entry", "Corporate Advisory", "Regulatory", "Transactions"],
-    image: "/Part-10 .png",
+    image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1200&q=80",
     href: "/global-presence/india",
   },
   {
     name: "UAE",
+    flag: "/flag/uae.png",
     description: "Advisory support for business setup, market entry, investment activity and regional commercial structures.",
     tags: ["Middle East", "FDI", "Business Setup", "Commercial Strategy"],
-    image: "/Part-11 .png",
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80",
     href: "/global-presence/uae",
   },
   {
     name: "Singapore",
+    flag: "/flag/singapore.png",
     description: "Cross-border coordination and regional operational guidance for businesses navigating Asia-Pacific opportunities.",
     tags: ["Asia-Pacific", "Entity Structuring", "Tax", "Commercial Planning"],
-    image: "/Part-12 .png",
+    image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1200&q=80",
     href: "/global-presence/singapore",
   },
   {
     name: "UK",
+    flag: "/flag/uk.png",
     description: "International market perspectives for transactions, governance and regulatory considerations in a highly active legal environment.",
     tags: ["Transactions", "Corporate", "Compliance", "International Growth"],
-    image: "/Part-13 .png",
+    image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1200&q=80",
     href: "/global-presence/uk",
   },
   {
     name: "USA",
+    flag: "/flag/usa.png",
     description: "Support for strategic entry plans, funding structures and business alignment in a complex regulatory framework.",
     tags: ["Market Entry", "Investment", "Operations", "Commercial Contracts"],
-    image: "/Part-14 .png",
+    image: "https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?auto=format&fit=crop&w=1200&q=80",
     href: "/global-presence/usa",
   },
   {
     name: "EU",
+    flag: "/flag/eu.png",
     description: "Jurisdiction-sensitive guidance for international commercial structures, operational planning and cross-border execution.",
     tags: ["Regulatory", "Compliance", "Transactions", "Business Expansion"],
-    image: "/Part-15 .png",
+    image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
     href: "/global-presence/eu",
   },
   {
     name: "Middle East",
+    flag: "/flag/uae.png",
     description: "Regional insight for businesses seeking to operate, invest and coordinate across the Gulf and wider MENA landscape.",
     tags: ["Regional Strategy", "Market Entry", "Commercial Structuring", "Cross-Border"],
-    image: "/Part-16 .png",
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80",
     href: "/global-presence/middle-east",
   },
 ];
@@ -180,66 +188,10 @@ export default function GlobalPresencePage() {
               </div>
             </div>
 
-            <div className={styles.heroVisual} aria-label="Astronis global advisory network illustration">
-              <div className={styles.networkMap}>
-                <svg viewBox="0 0 660 660" className={styles.mapSvg} aria-hidden="true">
-                  <path d="M330 330 L250 250 L200 200" />
-                  <path d="M330 330 L430 280 L515 220" />
-                  <path d="M330 330 L385 170 L470 120" />
-                  <path d="M330 330 L240 170 L140 150" />
-                  <path d="M330 330 L290 135 L220 90" />
-                  <path d="M330 330 L360 215 L410 150" />
-                  <path d="M330 330 L390 420 L455 470" />
-                </svg>
 
-                <div className={styles.hubNode}>
-                  <span>A</span>
-                  <strong>Astronis</strong>
-                  <small>Connected Advisory</small>
-                </div>
-
-                <div className={styles.locationNode} style={{ left: "53%", top: "58%" }}>
-                  India
-                </div>
-                <div className={styles.locationNode} style={{ left: "68%", top: "46%" }}>
-                  UAE
-                </div>
-                <div className={styles.locationNode} style={{ left: "79%", top: "72%" }}>
-                  Singapore
-                </div>
-                <div className={styles.locationNode} style={{ left: "36%", top: "29%" }}>
-                  UK
-                </div>
-                <div className={styles.locationNode} style={{ left: "19%", top: "39%" }}>
-                  USA
-                </div>
-                <div className={styles.locationNode} style={{ left: "47%", top: "22%" }}>
-                  EU
-                </div>
-                <div className={styles.locationNode} style={{ left: "60%", top: "39%" }}>
-                  Middle East
-                </div>
-              </div>
-            </div>
           </div>
 
-          <div className={styles.heroBadges}>
-            {[
-              "India Entry",
-              "Cross-Border Advisory",
-              "International Transactions",
-              "Foreign Investment",
-              "Global Expansion",
-              "Regulatory Coordination",
-              "International Network",
-              "Market Entry",
-            ].map((badge) => (
-              <span key={badge} className={styles.badge}>
-                <i aria-hidden="true" />
-                {badge}
-              </span>
-            ))}
-          </div>
+
         </div>
       </section>
 
@@ -252,38 +204,6 @@ export default function GlobalPresencePage() {
                 <span>{metric.label}</span>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <div className={styles.container}>
-          <div className={styles.sectionHeading}>
-            <div>
-              <span className={styles.sectionLabel}>Global Capability</span>
-              <h2>Connected Across Jurisdictions. Grounded in Local Context.</h2>
-            </div>
-          </div>
-
-          <div className={styles.introLayout}>
-            <div className={styles.introCopy}>
-              <p>
-                International business decisions rarely stop at one jurisdiction. Astronis brings together corporate, regulatory, legal and business perspectives to support clients across market entry, foreign investment, transactions, compliance and international growth.
-              </p>
-            </div>
-
-            <div className={styles.capabilityPills}>
-              {[
-                "Market Entry",
-                "Investment",
-                "Transactions",
-                "Compliance",
-                "Expansion",
-                "Cross-Border Coordination",
-              ].map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -326,7 +246,10 @@ export default function GlobalPresencePage() {
             <div className={styles.mapInfo}>
               {regionCards.map((region) => (
                 <article key={region.name} className={styles.regionInfo}>
-                  <h3>{region.name}</h3>
+                  <div className={styles.regionInfoHeader}>
+                    <AssetImage className={styles.countryFlag} src={region.flag} alt={`${region.name} flag`} width={36} height={24} />
+                    <h3>{region.name}</h3>
+                  </div>
                   <p>{region.description}</p>
                 </article>
               ))}
@@ -348,7 +271,7 @@ export default function GlobalPresencePage() {
             {regionCards.map((region) => (
               <Link key={region.name} href={region.href} className={styles.regionCard}>
                 <div className={styles.regionImage}>
-                  <AssetImage src={region.image} alt={region.name} fill sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image src={region.image} alt={region.name} fill sizes="(max-width: 768px) 100vw, 33vw" />
                 </div>
                 <div className={styles.regionBody}>
                   <h3>{region.name}</h3>
@@ -467,26 +390,6 @@ export default function GlobalPresencePage() {
 
             <div className={styles.featureMedia}>
               <AssetImage src="/international-network-hero.png" alt="International business expansion across regional markets" fill sizes="(max-width: 768px) 100vw, 50vw" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <div className={styles.container}>
-          <div className={styles.sectionHeading}>
-            <div>
-              <span className={styles.sectionLabel}>Connected Expertise</span>
-              <h2>Connected Expertise for Cross-Border Decisions</h2>
-            </div>
-          </div>
-
-          <div className={styles.expertiseHub}>
-            {expertiseNodes.map((node) => (
-              <span key={node}>{node}</span>
-            ))}
-            <div className={styles.expertiseCenter}>
-              <strong>Cross-Border<br />Client Requirement</strong>
             </div>
           </div>
         </div>
