@@ -2,8 +2,9 @@ import { notFound } from "next/navigation";
 import { countries, siteMenu, slugify } from "@/content/site";
 import { Banner, Button, TextLink } from "../../_components/ui";
 const entries = [...countries, ...siteMenu.global, "Local Insight"];
+const jurisdictionEntries = entries.filter((title) => slugify(title) !== "india");
 export function generateStaticParams() {
-  return entries.map((t) => ({ slug: slugify(t) }));
+  return jurisdictionEntries.map((t) => ({ slug: slugify(t) }));
 }
 export async function generateMetadata({
   params,
@@ -11,7 +12,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  return { title: entries.find((t) => slugify(t) === slug) };
+  return { title: jurisdictionEntries.find((t) => slugify(t) === slug) };
 }
 export default async function Desk({
   params,
@@ -19,7 +20,7 @@ export default async function Desk({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const title = entries.find((t) => slugify(t) === slug);
+  const title = jurisdictionEntries.find((t) => slugify(t) === slug);
   if (!title) notFound();
   return (
     <>
