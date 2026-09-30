@@ -42,7 +42,7 @@
 .heroPhoto {
   position: absolute;
   z-index: -1;
-  inset: 0 0 0 42%;
+  inset: 0;
   overflow: hidden;
 }
 
@@ -50,7 +50,7 @@
   position: absolute;
   inset: 0;
   content: "";
-  background: linear-gradient(90deg, #f5f8fa 0%, #f5f8fae8 14%, #f5f8fa22 55%, #082b5322 100%);
+  background: linear-gradient(90deg, rgba(245, 248, 250, 0.97) 0%, rgba(245, 248, 250, 0.9) 22%, rgba(245, 248, 250, 0.48) 43%, rgba(8, 43, 83, 0.18) 100%);
 }
 
 .heroPhoto img { object-fit: cover; object-position: 50% 47%; }

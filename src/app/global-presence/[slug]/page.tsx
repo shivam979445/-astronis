@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { countries, siteMenu, slugify } from "@/content/site";
 import { Banner, Button, TextLink } from "../../_components/ui";
 const entries = [...countries, ...siteMenu.global, "Local Insight"];
-const jurisdictionEntries = entries.filter((title) => slugify(title) !== "india");
+const jurisdictionEntries = entries.filter((title) => !["india", "uae", "singapore", "uk", "usa"].includes(slugify(title)));
 export function generateStaticParams() {
   return jurisdictionEntries.map((t) => ({ slug: slugify(t) }));
 }

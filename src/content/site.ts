@@ -418,11 +418,11 @@ export const insightCategories = [
   "FEMA & Cross-Border Insight",
 ];
 export const countries = [
-  "India",
+  "USA",
+  "European Union",
+  "UK",
   "UAE",
   "Singapore",
-  "UK",
-  "USA",
-  "EU",
   "Middle East",
+  "India",
 ];

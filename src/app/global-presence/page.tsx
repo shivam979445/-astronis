@@ -61,12 +61,12 @@ const regionCards = [
     href: "/global-presence/usa",
   },
   {
-    name: "EU",
+    name: "European Union",
     flag: "/flag/eu.png",
     description: "Jurisdiction-sensitive guidance for international commercial structures, operational planning and cross-border execution.",
     tags: ["Regulatory", "Compliance", "Transactions", "Business Expansion"],
     image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
-    href: "/global-presence/eu",
+    href: "/global-presence/european-union",
   },
   {
     name: "Middle East",

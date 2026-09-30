@@ -6,13 +6,13 @@ import styles from "./global-presence-menu.module.css";
 import { isRouteActive } from "./navigation-state";
 
 const regions = [
-  ["India", "Our home market, serving clients nationwide.", "india"],
+  ["USA", "Advising across key markets in the United States.", "usa"],
+  ["European Union", "Access to European markets and regulation.", "eu"],
+  ["UK", "Supporting businesses across the United Kingdom.", "uk"],
   ["UAE", "A strategic hub for the Middle East.", "uae"],
   ["Singapore", "Gateway to Asia-Pacific opportunities.", "singapore"],
-  ["UK", "Supporting businesses across the United Kingdom.", "uk"],
-  ["USA", "Advising across key markets in the United States.", "usa"],
-  ["EU", "Access to European markets and regulation.", "eu"],
   ["Middle East", "Regional expertise across key jurisdictions.", "middleEast"],
+  ["India", "Our home market, serving clients nationwide.", "india"],
 ] as const;
 
 const explore = [

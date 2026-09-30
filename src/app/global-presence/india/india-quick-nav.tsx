@@ -4,8 +4,10 @@ import styles from "./page.module.css";
 
 export default function IndiaQuickNav({
   items,
+  ariaLabel = "India page sections",
 }: {
   items: readonly (readonly [string, string])[];
+  ariaLabel?: string;
 }) {
   function scrollToSection(event: React.MouseEvent<HTMLAnchorElement>, id: string) {
     const target = document.getElementById(id);
@@ -22,7 +24,7 @@ export default function IndiaQuickNav({
   }
 
   return (
-    <nav className={styles.quickNav} aria-label="India page sections">
+    <nav className={styles.quickNav} aria-label={ariaLabel}>
       <div>
         {items.map(([label, id]) => (
           <a href={`#${id}`} key={id} onClick={(event) => scrollToSection(event, id)}>

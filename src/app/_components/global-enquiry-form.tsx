@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
+import { industries as siteIndustries } from "@/content/site";
 import {
   enquiryCategoryOptions,
   getPrimaryOptions,
@@ -101,6 +102,7 @@ type Props = {
   defaultSelection?: string;
   title?: string;
   description?: string;
+  variant?: "default" | "compact" | "market";
 };
 
 export default function GlobalEnquiryForm({
@@ -109,6 +111,7 @@ export default function GlobalEnquiryForm({
   defaultSelection,
   title = "Tell Us About Your Requirement",
   description = "Share a few details about your business and requirement. Our team will connect you with the right Astronis Global professional.",
+  variant = "default",
 }: Props) {
   const pathname = usePathname();
   const inferred = useMemo(() => inferDefaultContext(pathname ?? ""), [pathname]);
@@ -128,7 +131,7 @@ export default function GlobalEnquiryForm({
     phone: "",
     company: "",
     designation: "",
-    country: "India",
+    country: variant === "market" ? "" : "India",
     state: "",
     city: "",
     companyType: "",
@@ -142,7 +145,7 @@ export default function GlobalEnquiryForm({
     regulator: "",
     currentStatus: "",
     transactionType: "",
-    countriesInvolved: "",
+    countriesInvolved: variant === "market" ? "UAE" : "",
     transactionStage: "",
     ipRequirement: "",
     message: "",
@@ -226,10 +229,10 @@ export default function GlobalEnquiryForm({
 
     if (!detail.name.trim() || detail.name.trim().length < 2) nextErrors.name = "Please enter your full name.";
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(detail.email.trim())) nextErrors.email = "Please enter a valid business email.";
-    if (!detail.company.trim()) nextErrors.company = "Please enter your company or organisation.";
+    if (variant !== "market" && !detail.company.trim()) nextErrors.company = "Please enter your company or organisation.";
     if (!category) nextErrors.category = "Please select the main requirement category.";
     if (!primarySelection) nextErrors.primarySelection = "Please choose the relevant option.";
-    if (!detail.country.trim()) nextErrors.country = "Please select your country.";
+    if (variant !== "market" && !detail.country.trim()) nextErrors.country = "Please select your country.";
     if (!detail.message.trim() || detail.message.trim().length < 10) nextErrors.message = "Please describe your requirement in a bit more detail.";
     if (!detail.consent) nextErrors.consent = "Please confirm consent before submitting.";
 
@@ -247,7 +250,7 @@ export default function GlobalEnquiryForm({
 
     const message = detail.message.trim();
     const selectedService = category === "service" ? primarySelection : "";
-    const selectedIndustry = category === "industry" ? primarySelection : "";
+    const selectedIndustry = category === "industry" ? primarySelection : variant === "market" ? detail.interest : "";
     const selectedTechnology = category === "technology" ? primarySelection : "";
     const requirement = secondarySelection || detail.interest || primarySelection;
     const payload = {
@@ -315,7 +318,7 @@ export default function GlobalEnquiryForm({
         phone: "",
         company: "",
         designation: "",
-        country: "India",
+        country: variant === "market" ? "" : "India",
         state: "",
         city: "",
         companyType: "",
@@ -329,7 +332,7 @@ export default function GlobalEnquiryForm({
         regulator: "",
         currentStatus: "",
         transactionType: "",
-        countriesInvolved: "",
+        countriesInvolved: variant === "market" ? "UAE" : "",
         transactionStage: "",
         ipRequirement: "",
         message: "",
@@ -347,7 +350,7 @@ export default function GlobalEnquiryForm({
   };
 
   return (
-    <div className={styles.wrapper} id="enquiry-form">
+    <div className={`${styles.wrapper} ${variant === "compact" ? styles.compact : ""} ${variant === "market" ? styles.market : ""}`.trim()} id="enquiry-form">
       <div className={styles.header}>
         <div>
           <span className={styles.eyebrow}>Start a conversation</span>
@@ -358,6 +361,67 @@ export default function GlobalEnquiryForm({
 
       <form className={styles.form} onSubmit={handleSubmit} noValidate>
         <div className={styles.grid}>
+          {variant === "market" ? (
+            <>
+              <label className={styles.field}>
+                <span>Full Name *</span>
+                <input name="name" value={detail.name} onChange={(event) => updateField("name", event.target.value)} autoComplete="name" placeholder="Full Name *" aria-invalid={Boolean(errors.name)} />
+                {errors.name && <small className={styles.error}>{errors.name}</small>}
+              </label>
+              <label className={styles.field}>
+                <span>Organisation</span>
+                <input name="company" value={detail.company} onChange={(event) => updateField("company", event.target.value)} autoComplete="organization" placeholder="Organisation" aria-invalid={Boolean(errors.company)} />
+                {errors.company && <small className={styles.error}>{errors.company}</small>}
+              </label>
+              <label className={styles.field}>
+                <span>Email Address *</span>
+                <input name="email" type="email" value={detail.email} onChange={(event) => updateField("email", event.target.value)} autoComplete="email" placeholder="Email Address *" aria-invalid={Boolean(errors.email)} />
+                {errors.email && <small className={styles.error}>{errors.email}</small>}
+              </label>
+              <label className={styles.field}>
+                <span>Phone / Country Code</span>
+                <input name="phone" type="tel" value={detail.phone} onChange={(event) => updateField("phone", event.target.value)} autoComplete="tel" placeholder="Phone / Country Code" aria-invalid={Boolean(errors.phone)} />
+                {errors.phone && <small className={styles.error}>{errors.phone}</small>}
+              </label>
+              <label className={styles.field}>
+                <span>Your Current Country</span>
+                <select name="country" value={detail.country} onChange={(event) => updateField("country", event.target.value)}>
+                  <option value="">Your Current Country</option>
+                  {countries.map((option) => <option key={option} value={option}>{option}</option>)}
+                </select>
+              </label>
+              <label className={styles.field}>
+                <span>Service Required *</span>
+                <select name="primarySelection" value={primarySelection} onChange={(event) => { setPrimarySelection(event.target.value); setSecondarySelection(""); setErrors((current) => ({ ...current, primarySelection: "" })); }} aria-invalid={Boolean(errors.primarySelection)}>
+                  <option value="">Service Required *</option>
+                  {primaryOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+                </select>
+                {errors.primarySelection && <small className={styles.error}>{errors.primarySelection}</small>}
+              </label>
+              <label className={styles.field}>
+                <span>Industry</span>
+                <select name="industry" value={detail.interest} onChange={(event) => updateField("interest", event.target.value)}>
+                  <option value="">Industry</option>
+                  {siteIndustries.map((industry) => <option key={industry.slug} value={industry.title}>{industry.title}</option>)}
+                </select>
+              </label>
+              <label className={`${styles.field} ${styles.marketMessage}`}>
+                <span>Nature of Requirement *</span>
+                <textarea name="message" rows={3} value={detail.message} onChange={(event) => updateField("message", event.target.value)} placeholder="Nature of Requirement *" aria-invalid={Boolean(errors.message)} />
+                {errors.message && <small className={styles.error}>{errors.message}</small>}
+              </label>
+              <label className={styles.field}>
+                <span>Target Jurisdiction</span>
+                <select name="countriesInvolved" value={detail.countriesInvolved} onChange={(event) => updateField("countriesInvolved", event.target.value)}>
+                  <option value="UAE">UAE</option>
+                  <option value="India">India</option>
+                  <option value="India & UAE">India &amp; UAE</option>
+                  <option value="Other">Other</option>
+                </select>
+              </label>
+            </>
+          ) : (
+            <>
           <label className={styles.field}>
             <span>Full Name *</span>
             <input
@@ -751,6 +815,8 @@ export default function GlobalEnquiryForm({
             />
             {errors.message && <small className={styles.error}>{errors.message}</small>}
           </label>
+            </>
+          )}
         </div>
 
         <label className={styles.checkRow}>
@@ -762,7 +828,7 @@ export default function GlobalEnquiryForm({
             aria-invalid={Boolean(errors.consent)}
           />
           <span>
-            I consent to Astronis Global contacting me regarding my enquiry. <span className={styles.privacyLink}><Link href="/legal/privacy-policy">Privacy Policy</Link></span>
+            {variant === "market" ? "I agree to be contacted by Astronis Global." : <>I consent to Astronis Global contacting me regarding my enquiry. <span className={styles.privacyLink}><Link href="/legal/privacy-policy">Privacy Policy</Link></span></>}
           </span>
         </label>
         {errors.consent && <small className={styles.error}>{errors.consent}</small>}
@@ -774,7 +840,7 @@ export default function GlobalEnquiryForm({
 
         <div className={styles.actions}>
           <button type="submit" className={styles.button} disabled={busy}>
-            {busy ? "Sending…" : "Submit Enquiry"}
+            {busy ? "Sending…" : variant === "market" ? "Request a Consultation" : "Submit Enquiry"}
             <Icon name="arrow" />
           </button>
           <span className={styles.confidentiality}>Your information is treated as confidential.</span>
