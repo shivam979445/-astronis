@@ -296,9 +296,9 @@ export default function Header() {
               </div>
             </Fragment>
           ))}
-          <Link className="button nav-cta" href="/contact" onClick={closeMenus}>
+          <span className="button nav-cta">
             Schedule Meeting <Icon name="arrow" />
-          </Link>
+          </span>
         </nav>
       </div>
     </header>
